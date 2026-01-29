@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anmol Sweets & Restaurant in Birgunj, Nepal - Authentic Indian & Nepali cuisine, premium sweets, family dining. Open daily. Rs 1-500 per person.">
+    <meta name="keywords" content="restaurant Birgunj, sweets Birgunj, Indian food Nepal, Nepali restaurant, family dining Birgunj">
+    <title>Anmol Sweets & Restaurant | Best Restaurant in Birgunj, Nepal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B35;
+            --secondary-red: #C1403D;
+            --cream: #FFF8E7;
+            --warm-white: #FFFBF5;
+            --dark-brown: #3E2723;
+            --gold: #FFB300;
+            --text-dark: #2C1810;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--warm-white);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-red), var(--primary-orange));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cream);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(62, 39, 35, 0.6), rgba(193, 64, 61, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800"><rect fill="%23FF6B35" width="1600" height="800"/><circle cx="400" cy="200" r="150" fill="%23C1403D" opacity="0.3"/><circle cx="1200" cy="600" r="200" fill="%23FFB300" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 12rem 1.5rem 8rem;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--cream);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #4CAF50;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--secondary-red);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--secondary-red);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--gold));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            color: var(--secondary-red);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: var(--secondary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Menu Section */
+        .menu-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card-header {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, var(--cream), var(--warm-white));
+        }
+
+        .menu-card-body {
+            padding: 1.5rem;
+        }
+
+        .menu-card h3 {
+            color: var(--secondary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .price-range {
+            display: inline-block;
+            background: var(--cream);
+            color: var(--secondary-red);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Reviews Section */
+        .rating-overview {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .rating-number {
+            font-size: 4rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .stars {
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .review-count {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: var(--dark-brown);
+        }
+
+        .review-stars {
+            color: var(--gold);
+        }
+
+        .review-text {
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:nth-child(1) { background: linear-gradient(135deg, #FF6B35, #FFB300); }
+        .gallery-item:nth-child(2) { background: linear-gradient(135deg, #C1403D, #FF6B35); }
+        .gallery-item:nth-child(3) { background: linear-gradient(135deg, #FFB300, #FFF8E7); }
+        .gallery-item:nth-child(4) { background: linear-gradient(135deg, #FF6B35, #C1403D); }
+        .gallery-item:nth-child(5) { background: linear-gradient(135deg, #FFB300, #FF6B35); }
+        .gallery-item:nth-child(6) { background: linear-gradient(135deg, #C1403D, #FFB300); }
+
+        /* Location Section */
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            color: var(--secondary-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-orange);
+        }
+
+        .contact-item p {
+            margin: 0;
+            color: #555;
+        }
+
+        .contact-item strong {
+            color: var(--dark-brown);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 400px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: white;
+            padding: 3rem 1.5rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+        }
+
+        /* Floating Action Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--secondary-red);
+                width: 100%;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 10rem 1rem 6rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .menu-categories,
+            .reviews-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">🍽️</span>
+                <span>Anmol Sweets</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="status-badge">🟢 OPEN NOW - Closes 8:30 PM</div>
+        <h1>Pure Taste, Pure Tradition</h1>
+        <p>Anmol Sweets & Restaurant</p>
+        <div class="cta-buttons">
+            <a href="#menu" class="btn btn-primary">View Menu</a>
+            <a href="tel:051525810" class="btn btn-secondary">Call Now</a>
+            <a href="#contact" class="btn btn-outline">Get Directions</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Where Tradition Meets Taste</p>
+        
+        <div class="about-content">
+            <div class="about-image">🏪</div>
+            <div class="about-text">
+                <h3>Your Family's Favorite Destination</h3>
+                <p>At Anmol Sweets & Restaurant, we take pride in serving authentic Indian and Nepali cuisine that brings families together. Since our establishment, we've been committed to maintaining the highest standards of taste, quality, and hygiene.</p>
+                <p>Our skilled chefs prepare each dish with carefully selected ingredients and traditional recipes passed down through generations. From our signature sweets to our hearty meals, every item on our menu reflects our dedication to excellence.</p>
+                <p>Whether you're celebrating a special occasion or enjoying a casual family dinner, Anmol provides a warm, welcoming atmosphere where memories are made over delicious food.</p>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h4>Premium Quality</h4>
+                <p>Fresh ingredients and authentic recipes for the best taste</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧼</div>
+                <h4>Hygienic Kitchen</h4>
+                <p>Maintained to the highest standards of cleanliness</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h4>Family Friendly</h4>
+                <p>Comfortable dining space perfect for all ages</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-subtitle">Delicious Variety for Every Taste</p>
+        
+        <div class="menu-categories">
+            <div class="menu-card">
+                <div class="menu-card-header">🍬</div>
+                <div class="menu-card-body">
+                    <h3>Premium Sweets</h3>
+                    <p>Traditional Indian sweets made fresh daily - Gulab Jamun, Rasgulla, Barfi, Ladoo, and more</p>
+                    <span class="price-range">Rs 50 - 300</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-card-header">🍛</div>
+                <div class="menu-card-body">
+                    <h3>Indian & Nepali Meals</h3>
+                    <p>Dal Bhat, Curry dishes, Tandoori specialties, Biryani, Naan, and authentic regional cuisine</p>
+                    <span class="price-range">Rs 150 - 500</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-card-header">🥘</div>
+                <div class="menu-card-body">
+                    <h3>Snacks & Starters</h3>
+                    <p>Samosa, Pakora, Chaat, Momos, Spring Rolls, and other delicious appetizers</p>
+                    <span class="price-range">Rs 50 - 200</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-card-header">🧒</div>
+                <div class="menu-card-body">
+                    <h3>Kids Menu</h3>
+                    <p>Special child-friendly portions and mild flavors perfect for little ones</p>
+                    <span class="price-range">Rs 100 - 250</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-card-header">🥗</div>
+                <div class="menu-card-body">
+                    <h3>Vegan Options</h3>
+                    <p>Plant-based dishes prepared with care for our vegan guests</p>
+                    <span class="price-range">Rs 120 - 400</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-card-header">🍚</div>
+                <div class="menu-card-body">
+                    <h3>All You Can Eat</h3>
+                    <p>Unlimited buffet options available - contact us for details and special occasions</p>
+                    <span class="price-range">Special Price</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Trusted by Hundreds of Happy Diners</p>
+        
+        <div class="rating-overview">
+            <div class="rating-number">3.8</div>
+            <div class="stars">⭐⭐⭐⭐</div>
+            <div class="review-count">Based on 507+ Reviews</div>
+            <p style="margin-top: 1rem; color: #666;">507+ Happy Customers Trust Us!</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Rajesh K.</span>
+                    <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="review-text">"Best sweets in Birgunj! The Gulab Jamun is absolutely delicious. Family atmosphere and reasonable prices."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Priya S.</span>
+                    <span class="review-stars">⭐⭐⭐⭐</span>
+                </div>
+                <p class="review-text">"Great place for family dining. The Dal Bhat reminds me of home cooking. Clean and hygienic environment."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Amit M.</span>
+                    <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="review-text">"Excellent food quality and friendly service. The variety of vegan options is impressive. Highly recommend!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Sunita B.</span>
+                    <span class="review-stars">⭐⭐⭐⭐</span>
+                </div>
+                <p class="review-text">"Perfect spot for special occasions. The kids menu is great and staff is very accommodating. Will visit again!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Photo Gallery</h2>
+        <p class="section-subtitle">Experience Our Delicious Offerings</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">🍰</div>
+            <div class="gallery-item">🍛</div>
+            <div class="gallery-item">🥘</div>
+            <div class="gallery-item">🍜</div>
+            <div class="gallery-item">🧁</div>
+            <div class="gallery-item">🏪</div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact">
+        <h2 class="section-title">Visit Us</h2>
+        <p class="section-subtitle">We're Located in the Heart of Birgunj</p>
+        
+        <div class="location-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Address</strong>
+                        <p>2V6G+JM6 Near Himalayan Bank<br>Main Road, Birgunj 44300<br>Nepal</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Phone</strong>
+                        <p>051-525810</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div>
+                        <strong>Opening Hours</strong>
+                        <p>Daily: 8:00 AM - 8:30 PM</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">💰</div>
+                    <div>
+                        <strong>Price Range</strong>
+                        <p>Rs 1 - 500 per person</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="tel:051525810" class="btn btn-primary">📞 Call Now</a>
+                    <a href="https://maps.google.com/?q=2V6G+JM6+Birgunj" target="_blank" class="btn btn-secondary">📍 Get Directions</a>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div style="text-align: center; color: #666;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🗺️</div>
+                    <p><strong>Find Us on Google Maps</strong></p>
+                    <p>2V6G+JM6, Near Himalayan Bank<br>Main Road, Birgunj</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Anmol Sweets & Restaurant</h3>
+                <p>Pure Taste, Pure Tradition</p>
+                <p style="margin-top: 1rem;">Serving authentic Indian & Nepali cuisine with love and care since our establishment.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="https://wa.me/977515525810" class="social-icon">💬</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <ul>
+                    <li>Monday - Sunday</li>
+                    <li>8:00 AM - 8:30 PM</li>
+                    <li style="margin-top: 1rem; color: #4CAF50;">🟢 Currently Open</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#menu" style="color: #ddd; text-decoration: none;">Menu</a></li>
+                    <li><a href="#about" style="color: #ddd; text-decoration: none;">About Us</a></li>
+                    <li><a href="#reviews" style="color: #ddd; text-decoration: none;">Reviews</a></li>
+                    <li><a href="#contact" style="color: #ddd; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Special Features</h3>
+                <ul>
+                    <li>✅ All You Can Eat</li>
+                    <li>✅ Vegan Options</li>
+                    <li>✅ Kids' Menu</li>
+                    <li>✅ Family Dining</li>
+                    <li>✅ Hygienic Kitchen</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anmol Sweets & Restaurant. All rights reserved.</p>
+            <p>Best Restaurant in Birgunj | Authentic Indian & Nepali Cuisine</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/977515525810" class="floating-btn" target="_blank" title="Chat on WhatsApp">💬</a>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.menu-card, .review-card, .feature-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
